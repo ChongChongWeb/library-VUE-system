@@ -1,0 +1,112 @@
+*{
+	padding: 0;
+	margin: 0;
+	color: #303133;
+	font-size: 14px;
+}
+
+.fater-data-panle{
+	width: 900px;
+	margin: 90px auto;
+	padding: 15px;
+	border: 1px solid #CDD0D6;
+	border-radius: 5px;
+}
+.fater-data-title{
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 25px;
+}
+.fater-data-btns{
+	margin-bottom: 15px;
+}
+
+.fater-data-body a{
+	color: #303133;
+	text-decoration: none;
+}
+
+.fater-data-body table{
+	width: 100%;
+	border-left: 1px solid #CDD0D6;
+	border-bottom: 1px solid #CDD0D6;
+}
+.fater-data-body table tr th{
+	height: 35px;
+	border-right: 1px solid #CDD0D6;
+	border-top: 1px solid #CDD0D6;
+}
+.fater-data-body table tr td{
+	height: 25px;
+	border-right: 1px solid #CDD0D6;
+	border-top: 1px solid #CDD0D6;
+	text-align: center;
+}
+.fater-data-body table tr td img{
+	height: 85px;
+	width: 75px;
+	text-align: center;
+	overflow: hidden;
+}
+.fater-data-body ol{
+	margin-left: 25px;
+}
+.fater-data-body ol li{
+	height: 40px;
+}
+
+.fater-data-page{
+	margin-top: 25px;
+}
+
+.fater-data-form-item{
+	height: 45px;
+}
+.fater-data-form-item label{
+	margin-right: 20px;
+}
+.fater-data-form-item input[type='text']{
+	width: 280px;
+	height: 25px;
+	border: 1px solid #CDD0D6;
+	border-radius: 4px;
+	outline: none;
+}
+.fater-data-form-item input[type='password']{
+	height: 25px;
+	border: 1px solid #CDD0D6;
+	border-radius: 4px;
+	outline: none;
+}
+.fater-data-form-item textarea{
+	width: 280px;
+	border: 1px solid #CDD0D6;
+	border-radius: 4px;
+	outline: none;
+}
+.fater-data-form-item select{
+	width: 280px;
+	height: 25px;
+	outline: none;
+	border: 1px solid #CDD0D6;
+	border-radius: 4px;
+}
+.fater-data-form-item button{
+	min-width: 80px;
+	min-height: 30px;
+	border-radius: 4px;
+	outline: none;
+	margin-top: 20px;
+	margin-right: 15px;
+}
+.fater-data-form-item button[type='submit']{
+	background-color: #409EFF;
+	color: #fff;
+	border: none;
+}
+.fater-data-form-item button[type='reset']{
+	background-color: #fff;
+	color: #303133;
+	border: 1px solid #303133;
+}

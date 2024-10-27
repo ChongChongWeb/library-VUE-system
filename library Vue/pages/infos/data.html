@@ -1,0 +1,60 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书信息管理</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <div class="fater-data-panle">
+        <div class="fater-data-title">图书信息管理</div>
+        <div class="fater-data-body">
+           <div class="fater-data-btns">
+                <a href="/infos/add/view">添加</a>
+           </div>
+            <table>
+                <tr>
+                    <th> </th>
+                    <th>图书图片</th>
+                    <th>图书名称</th>
+                    <th>图书类型</th>
+                    <th>图书价格</th>
+                    <th>图书介绍</th>
+                    <th>操作</th>
+                </tr>
+                {% for item in data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        <img src="/{{item.img}}"/>
+                    </td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.typeName }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.intro }}</td>
+                    <td>
+                        <a href="/infos/upd/view?id={{ item.id }}">修改</a>
+                        <a href="/infos/del/form?id={{ item.id }}">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <div class="fater-data-page">
+                <a href="/infos/page/view?pageIndex=1&pageSize=2">首页</a>
+                {% if pageIndex == 1 %}
+                <a href="/infos/page/view?pageIndex=1&pageSize=2">上一页</a>
+                <a href="/infos/page/view?pageIndex={{ pageIndex|add:1 }}&pageSize=2">下一页</a>
+                {% elif pageIndex > 1 and pageIndex < pageTotal %}
+                <a href="/infos/page/view?pageIndex={{ pageIndex|add:-1 }}&pageSize=2">上一页</a>
+                <a href="/infos/page/view?pageIndex={{ pageIndex|add:1 }}&pageSize=2">下一页</a>
+                {% else %}
+                <a href="/infos/page/view?pageIndex={{ pageIndex|add:-1 }}&pageSize=2">上一页</a>
+                <a href="/infos/page/view?pageIndex={{ pageTotal }}&pageSize=2">下一页</a>
+                {% endif %}
+                <a href="/infos/page/view?pageIndex={{ pageTotal }}&pageSize=2">尾页</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

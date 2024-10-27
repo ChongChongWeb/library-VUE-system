@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书信息管理</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <div class="fater-data-panle">
+        <div class="fater-data-title">图书类型管理</div>
+        <div class="fater-data-body">
+           <div class="fater-data-btns">
+                <a href="/types/add/view">添加</a>
+           </div>
+            <table>
+                <tr>
+                    <th> </th>
+                    <th>类型名称</th>
+                    <th>操作</th>
+                </tr>
+                {% for item in data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>
+                        <a href="/types/upd/view?id={{ item.id }}">修改</a>
+                        <a href="/types/del/form?id={{ item.id }}">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <div class="fater-data-page">
+                <a href="/types/page/view?pageIndex=1&pageSize=2">首页</a>
+                {% if pageIndex == 1 %}
+                <a href="/types/page/view?pageIndex=1&pageSize=2">上一页</a>
+                <a href="/types/page/view?pageIndex={{ pageIndex|add:1 }}&pageSize=2">下一页</a>
+                {% elif pageIndex > 1 and pageIndex < pageTotal %}
+                <a href="/types/page/view?pageIndex={{ pageIndex|add:-1 }}&pageSize=2">上一页</a>
+                <a href="/types/page/view?pageIndex={{ pageIndex|add:1 }}&pageSize=2">下一页</a>
+                {% else %}
+                <a href="/types/page/view?pageIndex={{ pageIndex|add:-1 }}&pageSize=2">上一页</a>
+                <a href="/types/page/view?pageIndex={{ pageTotal }}&pageSize=2">下一页</a>
+                {% endif %}
+                <a href="/types/page/view?pageIndex={{ pageTotal }}&pageSize=2">尾页</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

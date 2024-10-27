@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书信息管理</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <div class="fater-data-panle">
+        <div class="fater-data-title">图书类型管理</div>
+        <div class="fater-data-body">
+           <div class="fater-data-btns">
+                <a href="/types/page/view">返回</a>
+            </div>
+            <div class="fater-data-form">
+				<form action="/types/add/form" method="post">
+                    <div class="fater-data-form-item">
+						<label>类型名称</label>
+						<input type="text" name="name" placeholder="请输入类型名称……">
+					</div>
+                    <div class="fater-data-form-item">
+						<button type="submit">提交</button>
+						<button type="reset">取消</button>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

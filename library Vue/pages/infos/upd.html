@@ -1,0 +1,57 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书信息管理</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <div class="fater-data-panle">
+        <div class="fater-data-title">图书信息管理</div>
+        <div class="fater-data-body">
+           <div class="fater-data-btns">
+                <a href="/infos/page/view">返回</a>
+            </div>
+            <div class="fater-data-form">
+				<form action="/infos/upd/form" method="post" enctype="multipart/form-data">
+                    <div class="fater-data-form-item">
+						<label>图书名称</label>
+						<input type="text" name="name" value="{{info.name}}" placeholder="请输入图书名称……">
+					</div>
+                    <div class="fater-data-form-item">
+						<label>图书图片</label>
+						<input type="file" name="img">
+					</div>
+                    <div class="fater-data-form-item">
+						<label>图书价格</label>
+						<input type="text" name="price" value="{{info.price}}" placeholder="请输入图书价格……">
+					</div>
+                    <div class="fater-data-form-item">
+						<label>选择类型</label>
+                        <select name="typeId">
+                            {% for item in types %}
+
+                            {% if item.id == info.type.id %}
+                            <option value="{{item.id}}" selected>{{item.name}}</option>
+                            {% else %}
+                            <option value="{{item.id}}">{{item.name}}</option>
+                            {% endif %}
+
+                            {% endfor %}
+                        </select>
+					</div>
+                    <div class="fater-data-form-item">
+						<label>图书描述</label>
+                        <textarea name="intro" placeholder="请输入图书描述……">{{info.intro}}</textarea>
+					</div>
+                    <input type="hidden" name="id" value="{{info.id}}">
+                    <div class="fater-data-form-item">
+						<button type="submit">提交</button>
+						<button type="reset">取消</button>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
